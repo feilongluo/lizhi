@@ -130,21 +130,6 @@
       <header>
       </header>
       <main class="main">
-        <aside>
-          <el-menu default-active="0" id="aside-menu" @select="handleSelect" :collapse="isPhone()">
-            <el-menu-item
-              v-for="(item, index) in videoList"
-              :key="index"
-              :index="String(index)"
-            >
-              <i class="el-icon-menu"></i>
-              <span slot="title">{{ item.name }}</span>
-            </el-menu-item>
-          </el-menu>
-        </aside>
-        <div class="wrap-dplayer">
-          <div ref="dplayer"></div>
-        </div>
       </main>
     </div>
   </body>
@@ -162,18 +147,6 @@
   <script>
     new Vue({
       el: "#app",
-      data: function () {
-        return {
-          dp: null,
-          songList: list,
-          drawer: false,
-          percentage: 0,
-          downloading: false,
-          downloadSongList: [],
-          videoList: [
-          ],
-        };
-      },
       mounted() {
         this.createAplayer();
       },
@@ -186,11 +159,6 @@
         }
       },
       methods: {
-        handleSelect(index, indexPath) {
-          this.videoList[index];
-          this.dp.switchVideo({ url: this.videoList[index].url });
-          this.dp.play();
-        },
         handleDownloadSelect(songList) {
           this.downloadSongList = songList
           this.percentage = 0
