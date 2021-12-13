@@ -1,5 +1,7 @@
 ## 南京李志
 
+移除了视频部分，因为摸鱼时不适合播放视频。只想听逼哥唱。
+
 :point_right: [https://lizhi-67q.pages.dev/](https://lizhi-67q.pages.dev/)
 
 ## 原项目作者
