@@ -172,26 +172,6 @@
           downloading: false,
           downloadSongList: [],
           videoList: [
-            {
-              name: "2009-我爱南京跨年演唱会",
-              url:
-                "https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2009-wanj@master/video/playlist.m3u8",
-            },
-            {
-              name: "2014-IO跨年演唱会",
-              url:
-                "https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2014-io@master/video/playlist.m3u8",
-            },
-            {
-              name: "2015-看见北京站直播实录",
-              url:
-                "https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2015-kj@master/video/playlist.m3u8",
-            },
-            {
-              name: "2018-洗心革面跨年演唱会",
-              url:
-                "https://cdn.jsdelivr.net/gh/nj-lizhi/kn-2018-xxgm@master/video/playlist.m3u8",
-            },
           ],
         };
       },
@@ -317,50 +297,9 @@
         },
         // 指引
         createDriver() {
-          if(document.cookie.indexOf("isFirstVisit=false") !== -1) return;
-          document.cookie = "isFirstVisit=false";
-          let driver = new Driver({
-            animate: true,
-            opacity: 0.7,
-            doneBtnText: "完成",
-            closeBtnText: "关闭",
-            nextBtnText: "下一步",
-            prevBtnText: "上一步",
-            showButtons: true,
-          });
-          driver.defineSteps([
-            {
-              element: "#aside-menu",
-              popover: {
-                title: "☀️ 演唱会列表",
-                description: "目前只收集了4场演唱会，欢迎提供视频源或直接 PR",
-                position: "right",
-              },
-            },
-            {
-              element: ".aplayer-pic",
-              popover: {
-                title: "🎸 音乐播放器",
-                description:
-                  "共收录 249 首歌曲，覆盖大部分专辑和演唱会 LIVE 直播",
-                position: "right-bottom",
-                offset: -30,
-              },
-            },
-            {
-              element: "#github-link",
-              popover: {
-                title: "🎨 Github",
-                description: "如需下载音频文件，请点这里。<br />欢迎 ✨star✨",
-                position: "left",
-                offset: 30,
-              },
-            },
-          ]);
-          driver.start();
         },
         isPhone() {
-          return window.screen.width < 768
+          return true;
         },
       },
     });
