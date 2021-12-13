@@ -85,7 +85,7 @@
   <body>
     <a
       id="github-link"
-      href="https://github.com/GoldSubmarine/lizhi"
+      href="https://github.com/feilongluo/lizhi"
       style="position: absolute; top: 0; right: 0; color: white;"
       title="Follow me on GitHub"
       aria-label="Follow me on GitHub"
@@ -176,8 +176,6 @@
       },
       mounted() {
         this.createAplayer();
-        this.createDplayer();
-        this.createDriver();
       },
       computed: {
         computedTableHeight() {
@@ -223,18 +221,6 @@
             if(nextIndex === this.downloadSongList.length) clearInterval(timer)
           }, 50)
         },
-        // 视频播放器
-        createDplayer() {
-          this.dp = new DPlayer({
-            container: this.$refs.dplayer,
-            video: {
-              url: this.videoList[0].url,
-              type: "hls",
-            },
-          });
-          // 移除默认菜单
-          this.dp.template.menu.remove();
-        },
         // 音频播放器
         createAplayer() {
           this.ap = new APlayer({
@@ -244,7 +230,6 @@
             autoplay: false,
             theme: '#FADFA3',
             loop: 'all',
-            order: 'random',
             preload: 'auto',
             volume: 0.7,
             mutex: true,
@@ -303,9 +288,6 @@
             this.ap.list.switch(indexArr[++nowIndex])
             this.ap.pause()
           }
-        },
-        // 指引
-        createDriver() {
         },
         isPhone() {
           return true;
